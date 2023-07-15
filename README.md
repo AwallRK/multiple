@@ -1,42 +1,48 @@
-# COMMAND
+# README
+Multiple git clone github classroom.
 
-# How to use
-- Go look variables from ```p0-variables.sh``` first.
-You can change some variable.
-- Change ```batchName``` in ```p0-variables.sh``` to your github classroom organization
-- Write your buddies github username in file that have named like ```buddiesFile``` from ```p0-variables.sh```
-- Write all student github username in file that have named like ```studentsFile``` from ```p0-variables.sh```
+## How to use
+Look variables from ```p0-variables.sh``` first.
+- Change ```batchName``` to your github classroom organization.
 
-# How to run
+Add some file and assign it with some data.
+- Assign your buddies github username in file that have named like ```buddiesFile value```  from ```p0-variables.sh```
+- Assign all student github username in file that have named like ```studentsFile value``` from ```p0-variables.sh```
+
+## How to run
 You can run from ```main.sh``` to choose from options
 ```
-bash main.sh <$4>
+bash main.sh <$4-optional>
 ```
 
 If you want to run 1 file, for example if you want to run ```p0-clone.sh``` only you can run with:
 ```
-bash p0-clone.sh <$1> <$2> <$3> <$4>
+bash p0-clone.sh <$1> <$2> <$3-optional> <$4-optional>
 ```
 
-## $1
+## Arguments
+### $1
 Challenge type
-- uc -> ungraded challenge
-- ch -> graded challenge
-- pt -> practice
-- slc -> simulation livecode
-- lc - livecode
-- st - special training
+- ```uc``` -> Ungraded Challenge
+- ```ch``` -> Graded Challenge
+- ```pt``` -> Practice Challenge
+- ```slc``` -> Simulation Livecode
+- ```lc``` -> Livecode
+- ```st``` -> Special Training
 
-## $2
-Challenge name
-- Practice without practice, example: "Algoritma-and-Pseudocode"
-- Ungraded/graded/slc/lc/st, example: 1 , 2 , 3
-- notes: for first challenge git use "first-challenge"
+notes: First challenge git use ```pt``` as challenge type
 
-## $3
-Student list
-- buddy -> buddy only
-- all -> all student
+### $2
+Challenge name.
+- Practice challenge, you can write it <strong>without prefix practice</strong>, for example: ```Algoritma-and-Pseudocode``` .
+- Ungraded / graded / slc / lc / st, you can write number only example: ```1``` , ```2``` , ```3```, etc..
 
-## $4
-Github organization classroom name
+notes: First challenge git use ```first-challenge``` as challenge name
+
+### $3
+Student list (optional).
+- ```buddy``` -> buddy only (default)
+- ```all``` -> all student
+
+### $4
+Github organization classroom name (optional). Change default value in variable ```batchName``` from ```p0-variables.sh```
