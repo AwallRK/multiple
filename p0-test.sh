@@ -11,6 +11,6 @@ echo $'START Checking\n'
 for element in $students
 do
   echo "Checking $element..."
-  cd "$folderPath/$element" && npm run test
-  cd ../../../
+  (cd "$folderPath/$element" && npm run test && cd ../../../) || echo "Failed to npm run test $element"
+  echo $'\n\n'
 done

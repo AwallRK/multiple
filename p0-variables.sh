@@ -5,7 +5,7 @@ folderPath=""
 prefixCh=""
 
 # You can change these variable
-batchName="" # organization name
+batchName="H8-P0-S3" # organization name
 
 # File name that store data - example buddy list -> list_buddy.txt
 studentsFile="list_students.txt"

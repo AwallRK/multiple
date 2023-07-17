@@ -11,6 +11,6 @@ echo $'START UNARCHIVING\n'
 for element in $students
 do
   echo "Unarchiving $element..."
-  cd "$folderPath/$element" && gh repo unarchive -y  || echo "Failed to archive $element" && echo $'\n\n'
-  cd ../../../
+  (cd "$folderPath/$element" && gh repo archive -y && cd ../../../) || echo "Failed to unarchive $element"
+  echo $'\n\n'
 done

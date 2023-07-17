@@ -11,6 +11,6 @@ echo $'START INSTALLING\n'
 for element in $students
 do
   echo "Installing $element..."
-  cd "$folderPath/$element" && npm install
-  cd ../../../
+  (cd "$folderPath/$element" && npm install && cd ../../../) || echo "Failed to npm install $element"
+  echo $'\n\n'
 done

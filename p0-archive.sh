@@ -11,6 +11,6 @@ echo $'START ARCHIVING\n'
 for element in $students
 do
   echo "Archiving $element..."
-  cd "$folderPath/$element" && gh repo archive -y || echo "Failed to archive $element" && echo $'\n\n'
-  cd ../../../
+  (cd "$folderPath/$element" && gh repo archive -y && cd ../../../) || echo "Failed to archive $element"
+  echo $'\n\n'
 done
