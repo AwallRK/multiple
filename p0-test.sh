@@ -10,7 +10,7 @@ check_student_list $3
 echo $'START Checking\n'
 for element in $students
 do
-  echo "Checking $element..."
+  echo "|| Checking $element... ||"
   (cd "$folderPath/$element" && npm run test && cd ../../../) || echo "Failed to npm run test $element"
   echo $'\n\n'
 done

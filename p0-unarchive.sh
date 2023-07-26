@@ -10,7 +10,7 @@ check_student_list $3
 echo $'START UNARCHIVING\n'
 for element in $students
 do
-  echo "Unarchiving $element..."
+  echo "|| Unarchiving $element... ||"
   (cd "$folderPath/$element" && gh repo archive -y && cd ../../../) || echo "Failed to unarchive $element"
   echo $'\n\n'
 done

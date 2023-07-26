@@ -10,7 +10,7 @@ check_student_list $3
 echo $'START INSTALLING\n'
 for element in $students
 do
-  echo "Installing $element..."
+  echo "|| Installing $element... ||"
   (cd "$folderPath/$element" && npm install && cd ../../../) || echo "Failed to npm install $element"
   echo $'\n\n'
 done

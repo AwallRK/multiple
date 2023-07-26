@@ -10,7 +10,7 @@ check_student_list $3
 echo $'START ARCHIVING\n'
 for element in $students
 do
-  echo "Archiving $element..."
+  echo "|| Archiving $element... ||"
   (cd "$folderPath/$element" && gh repo archive -y && cd ../../../) || echo "Failed to archive $element"
   echo $'\n\n'
 done
