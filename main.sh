@@ -66,10 +66,25 @@ run_script()
   scriptName=$1
   act=$2
   organization=$3
-  read -p "Enter your challenge number: " challenge
-  echo "START-$act-$student"
-  bash $scriptName $challengeType $challenge $student $organization
-  echo "FINISH-$act-$student"
+  read -p "Enter challenge number/name: " challenge
+  if [[ "$challenge" == *","* ]]; then
+    IFS=','
+    read -a challenges <<< "$challenge"
+    for val in "${challenges[@]}";
+    do
+      echo "=============================="
+      echo "|| START-$act-$student FOR CHALLENGE $val ||"
+      echo "=============================="
+      bash $scriptName $challengeType $val $student $organization
+      echo "=============================="
+      echo "|| FINISH-$act-$student FOR CHALLENGE $val ||"
+      echo '==============================\n\n'
+      done
+  else
+    echo "START-$act-$student"
+    bash $scriptName $challengeType $challenge $student $organization
+    echo "FINISH-$act-$student"
+  fi
 }
 
 main()

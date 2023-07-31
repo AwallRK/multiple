@@ -35,7 +35,9 @@ notes: First challenge git use ```pt``` as challenge type
 ### $2
 Challenge name.
 - Practice challenge, you can write it <strong>without prefix practice</strong>, for example: ```Algoritma-and-Pseudocode``` .
-- Ungraded / graded / slc / lc / st, you can write number only example: ```1``` , ```2``` , ```3```, etc..
+- Ungraded / graded / slc / lc / st, you can write number only. example: ```1``` , ```2``` , ```3```, etc..
+- If you want to apply to multiple challenge just add "," between challenge.
+example: ```5,6,7```
 
 notes: First challenge git use ```first-challenge``` as challenge name
 
