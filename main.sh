@@ -70,8 +70,7 @@ run_script()
   if [[ "$challenge" == *","* ]]; then
     IFS=','
     read -a challenges <<< "$challenge"
-    for val in "${challenges[@]}";
-    do
+    for val in "${challenges[@]}"; do
       echo "=============================="
       echo "|| START-$act-$student FOR CHALLENGE $val ||"
       echo "=============================="
@@ -79,10 +78,14 @@ run_script()
       echo "=============================="
       echo "|| FINISH-$act-$student FOR CHALLENGE $val ||"
       echo '==============================\n\n'
-      done
+    done
   else
     echo "START-$act-$student"
-    bash $scriptName $challengeType $challenge $student $organization
+    if [[ "$isLogging" == false ]]; then
+      bash $scriptName $challengeType $challenge $student $organization
+    else
+      bash log.sh $scriptName $challengeType $challenge $student $organization
+    fi
     echo "FINISH-$act-$student"
   fi
 }

@@ -12,10 +12,10 @@ echo $'START CLONING\n'
 for element in $students
 do
   check_challenge_type $1 $2
-  echo "|| Cloning $element into folder $folderPath ||"
   check_root_folder
+  echo "|| Cloning $element into folder $folderPath ||"
 
   git clone https://github.com/$batchName/$prefixCh-$element
   mv ./$prefixCh-$element ./$element
-  echo $'Done clone $element\n\n'
+  echo $'Done clone '"$element"$'\n\n'
 done

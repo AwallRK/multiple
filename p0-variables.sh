@@ -6,6 +6,7 @@ prefixCh=""
 
 # You can change these variable
 batchName="H8-P0-S3" # organization name
+isLogging=false
 
 # File name that store data - example buddy list -> list_buddy.txt
 studentsFile="list_students.txt"
