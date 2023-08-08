@@ -5,6 +5,7 @@ Multiple git clone github classroom.
 Look variables from ```p0-variables.sh``` first.
 - Change ```orgName``` to your github classroom organization.
 - Change ```practiceOrgName``` to practice github classroom organization.
+- Change ```challengeVersion``` to challenge problem set, example: ```"v1"``` for set 1
 
 Add some file and assign it with some data.
 - Assign your buddies github username in file that have named like ```buddiesFile value``` (example: ```list_buddy.txt```)  from ```p0-variables.sh```

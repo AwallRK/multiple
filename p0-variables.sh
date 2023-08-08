@@ -7,6 +7,7 @@ prefixCh=""
 # You can change these variable
 orgName="H8-P0-S1" # organization name
 practiceOrgName="H8-P0-PRACTICE" # practice organization name
+challengeVersion="v1" # set soal
 isLogging=false
 
 # File name that store data - example buddy list -> list_buddy.txt
@@ -16,10 +17,10 @@ buddiesFile="list_buddy.txt"
 # Prefix Repo Challenge - example: fsjs-p0-v3-ch2 -> chPrefix + 2
 firstChallenge="first-challenge-git"
 ptPrefix="Practice-"
-ucPrefix="fsjs-p0-v3-uc"
-gcPrefix="fsjs-p0-v3-ch"
-slcPrefix="fsjs-p0-v3-slc"
-lcPrefix="fsjs-p0-v3-lc"
+ucPrefix="fsjs-p0-$challengeVersion-uc"
+gcPrefix="fsjs-p0-$challengeVersion-ch"
+slcPrefix="fsjs-p0-$challengeVersion-slc"
+lcPrefix="fsjs-p0-$challengeVersion-lc"
 stPrefix="Special-Training-"
 
 # Parent folder name - example: ./[ptRoot]/Practice-name-challenge
