@@ -1,4 +1,5 @@
 #!/bin/sh
+source p0-variables.sh
 
 choose_students()
 {
@@ -94,7 +95,7 @@ main()
 {
   organization=$1
   PS3='Please enter your choice: '
-  options=("clone" "archive" "unarchive" "install" "test" "cancel")
+  options=("clone" "archive" "unarchive" "install" "test" "cancel" "clear-folder")
   select opt in "${options[@]}"
   do
     echo ""
@@ -127,6 +128,15 @@ main()
         choose_students
         choose_challenge
         run_script "p0-test.sh" "TESTING" $organization
+        break
+        ;;
+      "clear-folder")
+        (echo "removing practice folder" && rm -rf "$ptRoot") || echo "Error, folder practice not found"
+        (echo "removing ungraded folder" && rm -rf "$ucRoot") || echo "Error, folder ungraded not found"
+        (echo "removing graded folder" && rm -rf "$gcRoot") || echo "Error, folder graded not found"
+        (echo "removing livecode folder" && rm -rf "$lcRoot") || echo "Error, folder livecode not found"
+        (echo "removing simulasi livecode folder" && rm -rf "$slcRoot") || echo "Error, folder simulasi livecode not found"
+        (echo "removing special training folder" && rm -rf "$stRoot") || echo "Error, folder special training not found"
         break
         ;;
       "cancel")

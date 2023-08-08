@@ -49,7 +49,7 @@ check_challenge_type()
     "pt")
       # first challenge git
       if [ $2 == "first-challenge" ]; then 
-        prefixCh="fsjs-p0-first-challenge-git"
+        prefixCh="$firstChallenge"
         folderPath="$ptRoot/first-challenge"
       else
         prefixCh="$ptPrefix$2"

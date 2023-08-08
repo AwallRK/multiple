@@ -5,7 +5,7 @@ folderPath=""
 prefixCh=""
 
 # You can change these variable
-batchName="H8-P0-S3" # organization name
+batchName="H8-P0-S1" # organization name
 isLogging=false
 
 # File name that store data - example buddy list -> list_buddy.txt
@@ -13,6 +13,7 @@ studentsFile="list_students.txt"
 buddiesFile="list_buddy.txt"
 
 # Prefix Repo Challenge - example: fsjs-p0-v3-ch2 -> chPrefix + 2
+firstChallenge="first-challenge-git"
 ptPrefix="Practice-"
 ucPrefix="fsjs-p0-v3-uc"
 gcPrefix="fsjs-p0-v3-ch"
