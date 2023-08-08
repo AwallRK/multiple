@@ -1,13 +1,19 @@
 # README
 Multiple git clone github classroom.
 
-## How to use
+## How to use 
 Look variables from ```p0-variables.sh``` first.
-- Change ```batchName``` to your github classroom organization.
+- Change ```orgName``` to your github classroom organization.
+- Change ```practiceOrgName``` to practice github classroom organization.
 
 Add some file and assign it with some data.
-- Assign your buddies github username in file that have named like ```buddiesFile value```  from ```p0-variables.sh```
-- Assign all student github username in file that have named like ```studentsFile value``` from ```p0-variables.sh```
+- Assign your buddies github username in file that have named like ```buddiesFile value``` (example: ```list_buddy.txt```)  from ```p0-variables.sh```
+- Assign all student github username in file that have named like ```studentsFile value``` (example: ```list_students.txt```) from ```p0-variables.sh```
+
+For archive and unarchive challenge, please install github cli first.
+- Install github cli: https://cli.github.com/manual/installation
+- Login github cli: https://cli.github.com/manual/gh_auth_login
+
 
 ## How to run
 You can run from ```main.sh``` to choose from options
@@ -47,4 +53,15 @@ Student list (optional).
 - ```all``` -> all student
 
 ### $4
-Github organization classroom name (optional). Change default value in variable ```batchName``` from ```p0-variables.sh```
+Github organization classroom name (optional). Change default value in variable ```orgName``` from ```p0-variables.sh```
+
+
+## Variables
+### Prefix Repo Challenge
+Prefix challenge from repository in github classroom. Example: graded challenge 2 repository ```fsjs-p0-v3-ch2``` -> ```chPrefix``` + ```2```
+
+### Parent folder name
+Parent folder that group by challenge type. Example: practice challenge repository will have path like this ```./[RootFolder]/Practice-name-challenge```. ```RootFolder``` will have value from variable ```$ptRoot```
+
+### Folder name that include challenge
+Folder challenge name that include students repo. Example: ```./Practice/[PracticeFolderName]```. ```PracticeFolderName``` will have value from variabel ```$ptPath```

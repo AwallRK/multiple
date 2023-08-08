@@ -96,7 +96,7 @@ validate_arguments()
 check_batch()
 {
   if [ $1 ]; then
-    batchName="$1"
+    orgName="$1"
   fi
 }
 

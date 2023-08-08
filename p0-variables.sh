@@ -5,7 +5,8 @@ folderPath=""
 prefixCh=""
 
 # You can change these variable
-batchName="H8-P0-S1" # organization name
+orgName="H8-P0-S1" # organization name
+practiceOrgName="H8-P0-PRACTICE" # practice organization name
 isLogging=false
 
 # File name that store data - example buddy list -> list_buddy.txt

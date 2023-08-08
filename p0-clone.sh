@@ -15,7 +15,13 @@ do
   check_root_folder
   echo "|| Cloning $element into folder $folderPath ||"
 
-  git clone https://github.com/$batchName/$prefixCh-$element
+  if [ $2 == "first-challenge" ];then
+    git clone https://github.com/$orgName/$prefixCh-$element
+  elif [ $1 == "pt" ]; then
+    git clone https://github.com/$practiceOrgName/$prefixCh-$element
+  else
+    git clone https://github.com/$orgName/$prefixCh-$element
+  fi
   mv ./$prefixCh-$element ./$element
   echo $'Done clone '"$element"$'\n\n'
 done

@@ -62,12 +62,62 @@ choose_challenge()
   echo ""
 }
 
+check_practice_challenge()
+{
+  local challenge=""
+  PS3="Please choose the practice challenge: "
+  options2=("first-challenge" "Algoritma-and-Pseudocode" "Calculate-Circumference" "Newton-Second-Law" "Progate-Course-Javascript-1-to-2" "Basic-Conditional-Javascript" "Advance-Conditional" "Gatcha" "Basic-Loop" "Laundry-Day" "Nested-Loop" "Functions" "Array" "Array-Multi" "Modular-Function" "Object" "Progate-Course-HTML-CSS" "Menghias-HTML-dengan-CSS")
+  select opt in "${options2[@]}"
+  do
+    case $opt in
+      "first-challenge" | "Algoritma-and-Pseudocode" | "Calculate-Circumference" | "Newton-Second-Law" | "Progate-Course-Javascript-1-to-2" | "Basic-Conditional-Javascript" | "Advance-Conditional" | "Gatcha" | "Basic-Loop" | "Laundry-Day" | "Nested-Loop" | "Functions" | "Array" | "Array-Multi" | "Modular-Function" | "Object" | "Progate-Course-HTML-CSS" | "Menghias-HTML-dengan-CSS")
+        challenge=$opt
+        echo "$opt"
+        break
+        ;;
+      *)
+        echo "Invalid"
+        break
+        ;;
+    esac
+  done
+}
+
+choose_delete_folder()
+{
+  PS3='Please choose folder: '
+  options2=("$ptRoot" "$ucRoot" "$gcRoot" "$slcRoot" "$lcRoot" "$stRoot" "all")
+  select opt2 in "${options2[@]}"
+  do
+    case $opt2 in
+      "$ptRoot" | "$ucRoot" | "$gcRoot" | "$slcRoot" | "$lcRoot" | "$stRoot")
+        (echo "Removing $opt2" && rm -rf "$opt2" && echo "Success removing $opt2") || echo "Error! when removing folder $opt2"
+        break
+        ;;
+      "all")
+        (echo "Removing practice folder" && rm -rf "$ptRoot") || echo "Error! when removing folder practice"
+        (echo "Removing ungraded folder" && rm -rf "$ucRoot") || echo "Error! when removing folder ungraded"
+        (echo "Removing graded folder" && rm -rf "$gcRoot") || echo "Error! when removing folder graded"
+        (echo "Removing livecode folder" && rm -rf "$lcRoot") || echo "Error! when removing folder livecode"
+        (echo "Removing simulasi livecode folder" && rm -rf "$slcRoot") || echo "Error! when removing folder simulasi livecode"
+        (echo "Removing special training folder" && rm -rf "$stRoot") || echo "Error! when removing folder special training"
+        break
+        ;;
+    esac
+  done
+  echo ""
+}
+
 run_script()
 {
   scriptName=$1
   act=$2
   organization=$3
-  read -p "Enter challenge number/name: " challenge
+  if [ $challengeType == "pt" ]; then
+    challenge="$(check_practice_challenge)"
+  else
+    read -p "Enter challenge number/name: " challenge
+  fi
   if [[ "$challenge" == *","* ]]; then
     IFS=','
     read -a challenges <<< "$challenge"
@@ -131,12 +181,7 @@ main()
         break
         ;;
       "clear-folder")
-        (echo "removing practice folder" && rm -rf "$ptRoot") || echo "Error, folder practice not found"
-        (echo "removing ungraded folder" && rm -rf "$ucRoot") || echo "Error, folder ungraded not found"
-        (echo "removing graded folder" && rm -rf "$gcRoot") || echo "Error, folder graded not found"
-        (echo "removing livecode folder" && rm -rf "$lcRoot") || echo "Error, folder livecode not found"
-        (echo "removing simulasi livecode folder" && rm -rf "$slcRoot") || echo "Error, folder simulasi livecode not found"
-        (echo "removing special training folder" && rm -rf "$stRoot") || echo "Error, folder special training not found"
+        choose_delete_folder
         break
         ;;
       "cancel")
