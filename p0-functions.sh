@@ -29,6 +29,9 @@ create_parent_folder()
   if [ ! -d "./$stRoot" ] && [ $1 == "st" ]; then
     mkdir $stRoot
   fi
+  if [ ! -d "./$thrRoot" ] && [ $1 == "thr" ]; then
+    mkdir $thrRoot
+  fi
 }
 
 check_challenge_type()
@@ -71,6 +74,11 @@ check_challenge_type()
       prefixCh="$stPrefix$2"
       folderPath="$stRoot/$stPath$2"
       ;;
+     # THR
+    "thr")
+      prefixCh="$thrPrefix$2"
+      folderPath="$thrRoot/$thrPath$2"
+      ;;
     # case invalid
     *)
       echo "invalid option $REPLY"
@@ -86,9 +94,9 @@ validate_arguments()
     exit
   fi
 
-  commands=("pt" "uc" "ch" "slc" "lc" "st")
+  commands=("pt" "uc" "ch" "slc" "lc" "st" "thr")
   if [[ ! " ${commands[*]} " =~ " $1 " ]]; then
-    echo "Error! Challenge type must be pt uc ch slc lc or st"
+    echo "Error! Challenge type must be pt uc ch slc lc or st thr"
     exit
   fi  
 }

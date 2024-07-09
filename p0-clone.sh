@@ -19,6 +19,8 @@ do
     git clone https://github.com/$orgName/$prefixCh-$element
   elif [ $1 == "pt" ]; then
     git clone https://github.com/$practiceOrgName/$prefixCh-$element
+  elif [ $1 == "thr" ]; then
+    git clone https://github.com/$orgName/$prefixCh-$element
   else
     git clone https://github.com/$orgName/$prefixCh-$element
   fi

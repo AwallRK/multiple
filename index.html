@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="user">User</label>
+    <input type="text" id="user" />
+    <label for="password">Password</label>
+    <input type="password" id="password" />
+    <button onclick="getData()">Submit</button>
+    <script>
+      const dbusers = [
+        {
+          user: "admin",
+          password: "admin",
+        },
+      ];
+      function getData() {
+        const user = document.getElementById("user").value;
+        const password = document.getElementById("password").value;
+        // console.log(user, password);
+        let newUser = {
+          user,
+          password,
+        };
+        dbusers.push(newUser);
+        console.log(dbusers);
+      }
+    </script>
+  </body>
+</html>

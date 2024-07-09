@@ -24,7 +24,7 @@ choose_students()
 choose_challenge()
 {
   PS3='Please choose the challenge: '
-  options2=("first-challenge" "graded" "ungraded" "practice" "simulation" "livecode" "special-training")
+  options2=("first-challenge" "graded" "ungraded" "practice" "simulation" "livecode" "special-training" "thr")
   select opt in "${options2[@]}"
   do
     case $opt in
@@ -57,6 +57,10 @@ choose_challenge()
         challengeType="st"
         break
         ;;
+      "thr")
+        challengeType="thr"
+        break
+        ;;
     esac
   done
   echo ""
@@ -86,11 +90,11 @@ check_practice_challenge()
 choose_delete_folder()
 {
   PS3='Please choose folder: '
-  options2=("$ptRoot" "$ucRoot" "$gcRoot" "$slcRoot" "$lcRoot" "$stRoot" "all")
+  options2=("$ptRoot" "$ucRoot" "$gcRoot" "$slcRoot" "$lcRoot" "$stRoot" "$thrRoot" "all")
   select opt2 in "${options2[@]}"
   do
     case $opt2 in
-      "$ptRoot" | "$ucRoot" | "$gcRoot" | "$slcRoot" | "$lcRoot" | "$stRoot")
+      "$ptRoot" | "$ucRoot" | "$gcRoot" | "$slcRoot" | "$lcRoot" | "$stRoot" | "$thrRoot")
         (echo "Removing $opt2" && rm -rf "$opt2" && echo "Success removing $opt2") || echo "Error! when removing folder $opt2"
         break
         ;;
@@ -101,6 +105,7 @@ choose_delete_folder()
         (echo "Removing livecode folder" && rm -rf "$lcRoot") || echo "Error! when removing folder livecode"
         (echo "Removing simulasi livecode folder" && rm -rf "$slcRoot") || echo "Error! when removing folder simulasi livecode"
         (echo "Removing special training folder" && rm -rf "$stRoot") || echo "Error! when removing folder special training"
+        (echo "Removing thr folder" && rm -rf "$thrRoot") || echo "Error! when removing folder special training"
         break
         ;;
     esac
@@ -115,6 +120,8 @@ run_script()
   organization=$3
   if [ $challengeType == "pt" ]; then
     challenge="$(check_practice_challenge)"
+  elif [$challengeType == "thr" ]; then
+    challenge="-"
   else
     read -p "Enter challenge number/name: " challenge
   fi
