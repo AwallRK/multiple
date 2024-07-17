@@ -10,7 +10,8 @@ check_student_list $3
 echo $'START ARCHIVING\n'
 for element in $students
 do
+  
   echo "|| Archiving $element... ||"
-  (cd "$folderPath/$element" && gh repo archive -y && cd ../../../) || echo "Failed to archive $element"
+  (cd "$folderPath/$element" && gh repo set-default $orgName/$prefixCh-$element && gh repo archive -y && cd ../../../) || echo "Failed to archive $element"
   echo $'\n\n'
 done
